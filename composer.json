@@ -1,0 +1,18 @@
+{
+  "name": "barac/abdev-plugin",
+  "description": "Plugin dev starter",
+  "type": "project",
+  "license": "GPL",
+  "authors": [
+    {
+      "name": "AB-FlatCode",
+      "email": "info@flatcode.hr"
+    }
+  ],
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "Inc\\": "./inc"
+    }
+  }
+}
