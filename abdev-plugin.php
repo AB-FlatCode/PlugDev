@@ -13,8 +13,6 @@
  * Domain Path:       /languages
  */
 
-use Inc\Base\Activate;
-use Inc\Base\Deactivate;
 
 defined( 'ABSPATH' ) or die( 'You are not allowed to be here you silly human!' );
 
@@ -23,20 +21,15 @@ if ( file_exists( dirname( __FILE__ ) . '/vendor/autoload.php' ) ) {
 }
 
 
-// Constants
-define( 'PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
-define( 'PLUGIN_URL', plugin_dir_url( __FILE__ ) );
-define( 'PLUGIN', plugin_basename( __FILE__ ) );
-
 function activate_abdev_plugin() {
-  Activate::activate();
+  Inc\Base\Activate::activate();
 }
+register_activation_hook( __FILE__, 'activate_abdev_plugin' );
+
 
 function deactivate_abdev_plugin() {
-  Deactivate::deactivate();
+  Inc\Base\Deactivate::deactivate();
 }
-
-register_activation_hook( __FILE__, 'activate_abdev_plugin' );
 register_deactivation_hook( __FILE__, 'activate_abdev_plugin' );
 
 
