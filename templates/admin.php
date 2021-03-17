@@ -1,1 +1,1 @@
-<h1>AbDev Plugin</h1>
+<h1>AbDev Plugin Template</h1>

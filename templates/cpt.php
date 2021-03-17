@@ -1,0 +1,1 @@
+<h1>Cpt custom page</h1>
