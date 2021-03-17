@@ -16,7 +16,6 @@ class Admin extends BaseController
 
   public function register()
   {
-    //add_action('admin_menu', array( $this, 'add_admin_pages' ) );
 
     $pages = [
 
@@ -31,7 +30,40 @@ class Admin extends BaseController
       ]
     ];
 
-    $this->settings->addPages( $pages )->register();
+    $subpages = [
+
+      [
+        'parent_slug' => 'abdev_plugin',      
+        'page_title' => 'Custom Post Types',
+        'menu_title' => 'CPT',
+        'capability' => 'manage_options',
+        'menu_slug' => 'abdev_cpt',
+        'callback' => function() { echo '<h1>Custom Post Types Manager</h1>'; },
+  
+      ],
+
+      [
+        'parent_slug' => 'abdev_plugin',      
+        'page_title' => 'Custom Taxonomies',
+        'menu_title' => 'Taxonomies',
+        'capability' => 'manage_options',
+        'menu_slug' => 'abdev_taxonomies',
+        'callback' => function() { echo '<h1>Taxonomies Manager</h1>'; },
+  
+      ],
+
+      [
+        'parent_slug' => 'abdev_plugin',      
+        'page_title' => 'Custom Widgets',
+        'menu_title' => 'Widgets',
+        'capability' => 'manage_options',
+        'menu_slug' => 'abdev_widgets',
+        'callback' => function() { echo '<h1>Widgets Manager</h1>'; },
+  
+      ]
+  ];
+
+    $this->settings->addPages( $pages )->withSubpage( 'Dashboard' )->addSubPages( $subpages )->register();
 
   }
 
